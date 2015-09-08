@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/startsWith"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/wordStartsWith"
+            android:layout_marginBottom="10dp" />
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dontShowAgainDialogColor"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="@string/addedSinceColon" />
+        <Spinner
+            android:id="@+id/addedAtPeriod"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/addedAtPeriod"
+            android:prompt="@string/wordAddedSince"
+            android:layout_marginBottom="10dp" />
+		
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dontShowAgainDialogColor"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="@string/wordsStatusColon" />
+        
+		<CheckBox android:id="@+id/wordStatusNew"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MyWordStatus_NEW"
+            android:textColor="@color/dontShowAgainDialogColor"/>
+		
+		<CheckBox android:id="@+id/wordStatusFamiliar"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MyWordStatus_FAMILIAR"
+            android:textColor="@color/dontShowAgainDialogColor"/>
+		
+		<CheckBox android:id="@+id/wordStatusGood"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MyWordStatus_GOOD"
+            android:textColor="@color/dontShowAgainDialogColor"/>
+		
+		<CheckBox android:id="@+id/wordStatusKnown"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MyWordStatus_KNOWN"
+            android:textColor="@color/dontShowAgainDialogColor"/>
+		
+		<CheckBox android:id="@+id/wordStatusNever"
+		    android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MyWordStatus_NEVER"
+            android:textColor="@color/dontShowAgainDialogColor"/>
+		
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dontShowAgainDialogColor"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="@string/sortByColon" />
+		
+		<Spinner
+            android:id="@+id/sortingOrder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/sortingOrderArray"
+            android:prompt="@string/vocabularySortingOrder"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,246 @@
+group class-server;
+
+main(class, properties, packageName) ::= <<
+package <packageName>;
+
+import java.util.*;
+import java.util.Date;
+import org.json.*;
+/** AUTO-GENERATED **/
+public class <class.simpleName> implements Loader {
+	
+	<properties:field(); wrap, separator="\n">
+
+	<properties:getterAndSetter(); wrap, separator="\n\n">
+	
+	public <class.simpleName> load(JSONObject object) throws JSONException {
+					
+		<properties:loadField(); wrap, separator="\n">
+		<properties:loadStringField(); wrap, separator="\n">
+		<properties:loadDateField(); wrap, separator="\n">		
+		<properties:loadIntField(); wrap, separator="\n">
+		<properties:loadEnumField(); wrap, separator="\n">
+
+		<properties:loadCollectionField(); wrap, separator="\n">		
+		<properties:loadCollectionStringField(); wrap, separator="\n">
+		<properties:loadCollectionIntField(); wrap, separator="\n">
+		<properties:loadCollectionEnumField(); wrap, separator="\n">
+		return this;
+	}
+	
+	public JSONObject convertToJson() throws JSONException {
+		JSONObject conversion = new JSONObject();
+		<properties:convertField(); wrap, separator="\n">
+		<properties:convertPrimitiveField(); wrap, separator="\n">
+		<properties:convertEnumField(); wrap, separator="\n">
+		<properties:convertCollectionStringOrIntField(); wrap, separator="\n">
+		<properties:convertCollectionEnumField(); wrap, separator="\n">
+		<properties:convertCollectionField(); wrap, separator="\n">
+		
+		return conversion;
+		
+	}
+}
+>>
+
+loadDateField(property) ::= <<
+<if(property.date)>
+long <property.name> = object.optLong("<property.name>", -1);
+if (<property.name> > 0) {
+	this.<property.name> = new Date(<property.name>);
+}
+<endif>
+>>
+
+loadStringField(property) ::= <<
+<if(property.stringField)>
+this.<property.name> = object.optString("<property.name>");
+<endif>
+>>
+
+
+convertField(property) ::= <<
+<if(!property.array && property.generated && !property.enumField)>
+if (this.<property.name> != null) {
+	conversion.put("<property.name>", this.childField.convertToJson());
+}
+<endif>
+>>
+
+
+convertPrimitiveField(property) ::= <<
+
+<if(property.stringField)>
+if (this.<property.name> != null) {
+	conversion.put("<property.name>", this.<property.name>);
+}
+<endif>
+
+<if(property.date)>
+if (this.<property.name> != null) {
+	conversion.put("<property.name>", this.<property.name>.getTime());
+}
+<endif>
+
+
+<if(property.intField)>
+conversion.put("<property.name>", this.<property.name>);
+<endif>
+
+>>
+
+convertEnumField(property) ::= <<
+<if(property.enumField)>
+if (this.<property.name> != null) {	
+	conversion.put("<property.name>", this.<property.name>.name());
+}
+<endif>
+>>
+
+convertCollectionStringOrIntField(property) ::= <<
+<if(property.stringCollection || property.intCollection)>
+
+	if (<property.name> != null && !<property.name>.isEmpty()) {
+		JSONArray <property.name>Collection = new JSONArray();		
+		for (Object value : <property.name>) {
+			<property.name>Collection.put(value);
+		}
+		conversion.put("<property.name>", <property.name>Collection);
+	}
+<endif>
+>>
+
+convertCollectionEnumField(property) ::= <<
+<if(property.enumCollection)>
+
+	if (<property.name> != null && !<property.name>.isEmpty()) {
+		JSONArray <property.name>Collection = new JSONArray();		
+		for (<property.typeName> value : <property.name>) {
+			<property.name>Collection.put(value.name());
+		}
+		conversion.put("<property.name>", <property.name>Collection);
+	}
+<endif>
+>>
+
+convertCollectionField(property) ::= <<
+<if(property.array && !property.stringCollection && !property.intCollection && !property.enumCollection)>
+	
+	if (<property.name> != null && !<property.name>.isEmpty()) {
+		JSONArray <property.name>Collection = new JSONArray();
+		for (<property.typeName> value : <property.name>) {
+			<property.name>Collection.put(value.convertToJson());
+		}
+		conversion.put("<property.name>", <property.name>Collection);
+	}
+<endif>
+>>
+
+loadIntField(property) ::= <<
+<if(property.intField)>
+if (object.opt("<property.name>") != null) {
+this.<property.name> = (Integer)object.get("<property.name>");
+}
+<endif>
+>>
+
+
+loadEnumField(property) ::= <<
+<if(property.enumField)>
+this.<property.name> = <property.typeName>.valueOf(object.getString("<property.name>"));
+<endif>
+>>
+
+loadCollectionField(property) ::= <<
+<if(property.array && !property.stringCollection && !property.intCollection && !property.enumCollection)>
+	JSONArray <property.name> = object.optJSONArray("<property.name>");
+	if (<property.name> != null) {
+		List\<<property.typeName>\> <property.name>Collection = new ArrayList\<<property.typeName>\>(<property.name>.length());
+		for (int i = 0; i \< <property.name>.length(); i++) {
+			JSONObject jsonObject = <property.name>.getJSONObject(i);
+			<property.name>Collection.add(new <property.typeName>().load(jsonObject));
+		}
+		this.<property.name> = <property.name>Collection;
+	}
+<endif>
+>>
+
+loadField(property) ::= <<
+<if(!property.array && property.generated && !property.enumField)>
+	JSONObject <property.name> = object.optJSONObject("<property.name>");
+	if (<property.name> != null) {		
+		this.<property.name> = new <property.typeName>().load(<property.name>);
+	}
+<endif>
+>>
+
+loadCollectionStringField(property) ::= <<
+<if(property.stringCollection)>
+	JSONArray <property.name> = object.optJSONArray("<property.name>");
+	if (<property.name> != null) {
+		List\<<property.typeName>\> <property.name>Collection = new ArrayList\<<property.typeName>\>(<property.name>.length());
+		for (int i = 0; i \< <property.name>.length(); i++) {
+			String value = <property.name>.getString(i);
+			<property.name>Collection.add(value);
+		}
+		this.<property.name> = <property.name>Collection;
+	}
+<endif>
+>>
+
+loadCollectionIntField(property) ::= <<
+<if(property.intCollection)>
+	JSONArray <property.name> = object.optJSONArray("<property.name>");
+	if (<property.name> != null) {
+		List\<<property.typeName>\> <property.name>Collection = new ArrayList\<<property.typeName>\>(<property.name>.length());
+		for (int i = 0; i \< <property.name>.length(); i++) {		
+			<property.name>Collection.add(<property.name>.getInt(i));
+		}
+		this.<property.name> = <property.name>Collection;
+	}
+<endif>
+>>
+
+loadCollectionEnumField(property) ::= <<
+<if(property.enumCollection)>
+	JSONArray <property.name> = object.optJSONArray("<property.name>");
+	if (<property.name> != null) {
+		List\<<property.typeName>\> <property.name>Collection = new ArrayList\<<property.typeName>\>(<property.name>.length());
+		for (int i = 0; i \< <property.name>.length(); i++) {		
+			<property.name>Collection.add(<property.typeName>.valueOf(<property.name>.getString(i)));
+		}
+		this.<property.name> = <property.name>Collection;
+	}
+<endif>
+>>					
+		
+
+field(property) ::= <<
+private <typeName(property)> <property.name>;
+>>
+
+getterAndSetter(property) ::= <<
+<getter(property)>
+
+<setter(property)>
+>>
+
+getter(property) ::= <<
+public <typeName(property)> <property.getterName>() {
+	<if(property.array)>
+		if (<property.name> == null) {
+			return Collections.emptyList();
+		}
+	<endif>
+	return <property.name>;
+}
+>>
+setter(property) ::= <<
+public void <property.setterName>(<typeName(property)> <property.name>) {
+	this.<property.name> = <property.name>;
+}
+>>
+
+typeName(property) ::= <<
+<if(property.array && property.generated)>List\<<property.typeName>\><elseif(property.array && !property.generated)>List\<<property.typeName>\><elseif(!property.array && property.generated)><property.typeName><elseif(!property.array && !property.generated)><property.typeName><endif>
+>>
