@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="ad_unit_id">ca-app-pub-4418557653499639/7274633108</string>    
+    <!-- The name of the application. -->
+    <string name="app_name">My English Vocabulary</string>
+
+    <string name="search_label">Dictionary</string>
+ 
+    <!-- The hint text that appears in the search box. -->
+    <string name="search_hint">Type word in English</string>
+
+    <!-- The menu entry that invokes search. -->
+    <string name="menu_search">Search</string>
+
+
+    <!-- Shown above search results when we receive a search request. -->
+    <plurals name="search_results">
+        <item quantity="one">%1$d result for \"%2$s\": </item>
+        <item quantity="other">%1$d results for \"%2$s\": </item>
+    </plurals>
+
+    <string name="SynsetType_NOUN">Noun</string>
+    <string name="SynsetType_VERB">Verb</string>
+    <string name="SynsetType_ADJECTIVE">Adjective</string>
+    <string name="SynsetType_ADVERB">Adverb</string>
+    <string name="SynsetType_ADJECTIVE_SATELLITES">Adjective</string>
+    <string name="MyWordStatus_NEW">New</string>
+    <string name="MyWordStatus_FAMILIAR">Familiar</string>
+    <string name="MyWordStatus_GOOD">Good</string>
+    <string name="MyWordStatus_KNOWN">Known</string>
+    <string name="MyWordStatus_NEVER">Never</string>    
+    <string name="no_translation_found">No translations found for \"%s\"</string>
+    <string name="no_definition_found">No definitions found for \"%s\"</string>
+    <string name="no_images_found">No images found for \"%s\"</string>
+    <string name="add_to_vocabulary">Add \'%s\' to my vocabulary</string>
+    <string name="edit_my_word">Edit \'%s\'</string>
+    <string name="add_to_vocabulary_no_shortage">Add word</string>
+    <string name="edit_my_word_no_shortage">Edit word</string>
+    <string name="no_internet">Internet connection is not available</string>
+    <string name="internal_error">Ops&#8230; Some error happened</string>
+    <string name="added_at">Added on</string>
+    <string name="status">Status</string>
+    <string name="translations">Translations:</string>    
+    <string name="vocabulary_is_empty">You don\'t have vocabulary words yet."\n\n"Please start adding words from the search above</string>
+    <string name="no_words_for_filter">No words found for this filter</string>
+
+    <string-array name="my_word_statuses">
+        <item>@string/MyWordStatus_NEW</item>
+        <item>@string/MyWordStatus_FAMILIAR</item>
+        <item>@string/MyWordStatus_GOOD</item>
+        <item>@string/MyWordStatus_KNOWN</item>
+        <item>@string/MyWordStatus_NEVER</item>        
+    </string-array>
+    <string-array name="my_word_synsettypes">
+        <item>@string/select_part</item>
+        <item>@string/SynsetType_NOUN</item>
+        <item>@string/SynsetType_VERB</item>
+        <item>@string/SynsetType_ADJECTIVE</item>
+        <item>@string/SynsetType_ADVERB</item>
+    </string-array>
+
+    <string name="no_filter">Ever</string>
+    <string name="today">Today</string>
+    <string name="week_ago">Week ago</string>
+    <string name="month_ago">Month ago</string>
+
+    <string-array name="addedAtPeriod">
+        <item>@string/no_filter</item>
+        <item>@string/today</item>
+        <item>@string/week_ago</item>
+        <item>@string/month_ago</item>
+    </string-array>
+
+    <string name="select_part">Part of speech</string>
+    <string name="save">Save</string>
+    <string name="definitions">Definitions:</string>
+    <string name="definition">Definition</string>
+    <string name="translation">Translation</string>
+    <string name="images">Images</string>
+    <string name="synonyms">Synonyms</string>
+    <string name="examples">Examples</string>
+    <string name="wordStartsWith">Word starts with</string>
+    <string name="addDefinition">Add definition</string>
+    <string name="editDefinition">Edit definition</string>
+    <string name="addTranslation">Add translation</string>
+    <string name="editTranslation">Edit translation</string>
+    <string name="pickDefinition">Pick definition</string>
+    <string name="pickTranslation">Pick translation</string>
+    <string name="filterVocabulary">Filter vocabulary</string>
+    <string name="editWord">Edit word</string>
+    <string name="deleteWord">Delete word</string>
+    <string name="myVocabulary">My Vocabulary</string>
+    <string name="myVocabularyCaps">MY VOCABULARY</string>
+    <string name="signIn">Sign in</string>
+    <string name="doYouWantToSignOut">Do you want to sign out?</string>
+    <string name="signOut">Sign out</string>
+    <string name="signOutQuestion">Sign out?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or">-or-</string>
+    <string name="signUp">Sign up</string>
+    <string name="signInOpenID">Sign in via Open ID</string>
+    <string name="openIDSignIn">Open ID sign in</string>    
+    <string name="wrong_email_pwd">You have specified invalid email or password</string>
+    <string name="firstName">First name</string>
+    <string name="lastName">Last name</string>
+    <string name="FailureValue_USER_WITH_THIS_EMAIL_NOT_FOUND">Invalid email or password</string>
+    <string name="FailureValue_USER_WITH_EMAIL_EXISTS">Another user with this email already exist</string>
+    <string name="FailureValue_VALIDATION_ERROR">Invalid parameters</string>
+    <string name="invalidEmail">Invalid email</string>
+    <string name="invalidPassword">Password should be at least 6 character long</string>
+    
+    <string name="signInSuccess">You\'ve successfully signed in</string>
+    <string name="signUpSuccess">You\'ve successfully signed up at My English Vocabulary</string>
+    <string name="vocabularySynced">Your remote vocabulary has been synchronized successfully</string>
+    <string name="translationLangNotSet">Translation language not set</string>
+    <string name="anonymAccessTranslation">You are anonymous user and we don\'t know your translation language."\n\n"Please sign in and specify your preferred translation language.</string>
+    <string name="specifyTranslationLang">Translation language not set. Please specify your native language in user profile settings</string>
+    <string name="userProfile">User profile</string>
+    <string name="dontShowAgain">Don\'t show again</string>
+    <string name="pleaseSignIn">Please sign in</string>
+    <string name="pleaseSignInText">You can proceed as anonymous user, all your data will be saved on your Android."\n\n"However registered user can access his vocabulary elsewhere. Sign in?</string>
+	<string name="continueLabel">Continue</string>
+	<string name="filter">Filter</string>
+	<string name="selectLang">Select translation language</string> 
+	<string name="settings">Settings</string>	
+	<string name="definitionAlreadyAssigned">This definition is already assigned to the word</string>
+	<string name="translationAlreadyAssigned">This translation is already assigned to the word</string>
+	<string name="wordStatus">Word status</string>
+	<string name="wordsStatusColon">Word status:</string>
+	<string name="wordAddedSince">Words added from now till</string>
+	<string name="tapToPickImage">Tap to pick image</string>
+	<string name="connection_timeout">Connection problem. Please try again later</string>
+	<string name="about">About</string>
+	<string name="logout">Logout</string>
+	<string name="prefUserProfile">Modify user profile</string>
+	<string name="modifyUserProfile">Modify user profile</string>
+	<string name="modifyUserProfileOpenId">Modify your OpenID user profile</string>
+	
+	<string name="modifyUserProfileSuccess">Your profile has been updated</string>
+	<string name="aboutMyenvoc">Wouldn’t it be great to keep all English words you look up definitions and translations for in one place, and access your vocabulary seamlessly from mobile or web?\nMy English Vocabulary allows you to find definitions, synonyms and examples from popular WordNet lexical database for English language. Look up translations for your native language. Find an image for the word from Google Images.\nAdd the word to your personal account! The definition+translation+image combination is picked up automatically for the word, providing rich context for robust memorization.\nEdit the word by picking single definition, translation or image in one click, no typing required!\nYour vocabulary is offline though gets synchronized with remote one.\nUse filters to search your vocabulary. Different vocabulary views allows you to recollect English word by translation and so on. Auto completion and Google voice recognition should make your search experience even better.\n\nMy English Vocabulary Android is part of larger service available at http://myenvoc.com. There you can access your vocabulary and use learning module which is based on spaced repetitions algorithm providing smooth education.\nAlso My English Vocabulary Web provides ability to read your own or public content, where you can click a word to get a definition, etc. All your vocabulary words, as well as their derivatives are highlighted in the texts, allowing natural memorization.</string>
+	
+	<string name="more">More</string>
+	<string name="changeStatus">Change status</string>
+	
+	<string-array name="sortingOrderArray">
+        <item>@string/sortingByAddedDate</item>
+        <item>@string/sortAlphabetically</item>
+        <item>@string/sortRandom</item>        
+    </string-array>
+    
+	<string name="vocabularySortingOrder">Vocabulary sorting order</string>
+	
+	<string name="sortingByAddedDate">Sort by added date</string>
+	<string name="sortAlphabetically">Sort alphabetically</string>
+	<string name="sortRandom">Random</string>
+	
+	<string name="reset">Reset</string>
+	<string name="sortByColon">Sort by:</string>
+	<string name="addedSinceColon">Added since:</string>
+	<string name="confirmDeleteTitle">Confirm delete</string>
+	<string name="confirmWordDelete">Are you sure you want to delete this word?</string>
+	<string name="delete">Delete</string>
+	<string name="changeVocabularyView">Vocabulary view</string>
+	
+	<string name="VocabularyView_DEFAULT">Default</string>
+	<string name="VocabularyView_LEMMA">English word</string>
+	<string name="VocabularyView_TRANSLATION">Translation</string>
+	<string name="VocabularyView_TRANSLATION_DEFINITION">Translation and definition</string>
+	<string name="VocabularyView_PRONUNCIATION">Pronunciation</string>
+	
+	<string name="openCard">Open card</string>
+	
+	<string name="rate">If you enjoy using My English Vocabulary, please take a moment to rate it. Thanks for your support!"</string>
+	<string name="rateTitle">Please rate us!</string>
+	<string name="rateOkButton">Rate</string>
+	<string name="rateLaterButton">Remind me later</string>
+	<string name="rateNeverButton">No, thanks</string>
+	
+	<string name="share">Share</string>
+	<string name="shareVia">Share via</string>
+	<string name="shareSubject">My English Vocabulary</string>
+	<string name="shareBody">My English Vocabulary - Android app which makes it easier to find words definitions and translations, maintain vocabulary words and access it from Web or mobile.</string>
+</resources>

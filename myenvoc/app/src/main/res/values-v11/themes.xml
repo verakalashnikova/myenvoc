@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyenvocTheme" parent="@android:style/Theme.Holo.Light">
+        <!-- Any customizations for your app running on 3.0+ devices here -->
+        
+    </style>
+
+    <color name="dontShowAgainDialogColor">#000000</color>
+    
+</resources>
