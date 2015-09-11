@@ -2,7 +2,7 @@ package com.myenvoc.commons;
 
 import android.graphics.Color;
 /**
- * All myenvoc colors. I don't see good reason to define them in xml. Provide namespaces if it would be handy. Change
+ * All myenvoc colors. I don't see good reason to define them in xml. Provide namespaces if it would be handy.
  */
 public class Colors {
 	/** Abstract colors. */
