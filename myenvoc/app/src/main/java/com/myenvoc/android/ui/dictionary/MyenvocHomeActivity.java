@@ -71,6 +71,7 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 		View homeView = inflater.inflate(R.layout.home_page, null);
 		TextView welcomeTextView = (TextView) homeView.findViewById(R.id.welcome);
 		Button signInButton = (Button) homeView.findViewById(R.id.signIn);
+/*
 		User user = userService.getUser();
 		if (user.isAnonymous()) {
 			welcomeTextView.setVisibility(View.GONE);
@@ -99,7 +100,7 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 
 			});
 		}
-
+*/
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
 		// sV.setSearchableInfo(searchable);
@@ -110,7 +111,7 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 		// searchView.setIconifiedByDefault(false);
 
 		LinearLayout searchViewWrapper = (LinearLayout) homeView.findViewById(R.id.searchViewWrapper);
-
+/*
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			SearchView searchView = new SearchView(getBaseContext());
 			searchView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
@@ -127,7 +128,7 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 
 			searchViewWrapper.addView(searchViewSherlock);
 		}
-
+*/
 		installAds((AdView) homeView.findViewById(R.id.adView));
 		setContentView(homeView);
 
@@ -139,13 +140,13 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 		MenuInflater inflater = getMenuInflater();
 		
 		inflater.inflate(R.menu.home_menu, menu);
-
+/*
 		User user = userService.getUser();
 		MenuItem logout = menu.findItem(R.id.menu_logout);
 		if (logout != null) {
 			logout.setVisible(!user.isAnonymous());
 		}
-
+*/
 		return true;
 	}
 

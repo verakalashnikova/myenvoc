@@ -9,8 +9,9 @@ import com.google.android.gms.ads.AdView;
 import com.myenvoc.android.ui.dictionary.ToastAdListener;
 
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public abstract class MyenvocActivity extends ActionBarActivity {
+public abstract class MyenvocActivity extends AppCompatActivity {
 	protected AdView adView;
 	private Tracker mTracker;
 
