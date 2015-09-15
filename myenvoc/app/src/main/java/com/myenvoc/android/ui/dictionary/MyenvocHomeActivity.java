@@ -71,7 +71,7 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 		View homeView = inflater.inflate(R.layout.home_page, null);
 		TextView welcomeTextView = (TextView) homeView.findViewById(R.id.welcome);
 		Button signInButton = (Button) homeView.findViewById(R.id.signIn);
-/*
+
 		User user = userService.getUser();
 		if (user.isAnonymous()) {
 			welcomeTextView.setVisibility(View.GONE);
@@ -100,17 +100,24 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 
 			});
 		}
-*/
+
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
 		// sV.setSearchableInfo(searchable);
-		//
-		//
+
 		// SearchView searchView = (SearchView)
 		// homeView.findViewById(R.id.xxx);
 		// searchView.setIconifiedByDefault(false);
 
 		LinearLayout searchViewWrapper = (LinearLayout) homeView.findViewById(R.id.searchViewWrapper);
+		SearchView searchView = new SearchView(getBaseContext());
+		searchView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+		searchView.setIconifiedByDefault(false);
+		searchViewWrapper.addView(searchView);
+
+
+
 /*
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			SearchView searchView = new SearchView(getBaseContext());
@@ -132,21 +139,20 @@ public class MyenvocHomeActivity extends MyenvocActivity {
 		installAds((AdView) homeView.findViewById(R.id.adView));
 		setContentView(homeView);
 
-		// handleIntent(getIntent());
+		//handleIntent(getIntent());
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		
-		inflater.inflate(R.menu.home_menu, menu);
-/*
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		getMenuInflater().inflate(R.menu.home_menu, menu);
+
 		User user = userService.getUser();
 		MenuItem logout = menu.findItem(R.id.menu_logout);
 		if (logout != null) {
 			logout.setVisible(!user.isAnonymous());
 		}
-*/
+
 		return true;
 	}
 

@@ -9,6 +9,7 @@
         android:searchSuggestSelection=" ?"
         android:searchSuggestThreshold="1"
         android:includeInGlobalSearch="true"
-        android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" >
+        android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"
+        android:actionViewClass="android.support.v7.widget.SearchView">
         >
  </searchable>

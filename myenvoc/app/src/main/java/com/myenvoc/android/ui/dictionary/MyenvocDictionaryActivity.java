@@ -45,12 +45,12 @@ public class MyenvocDictionaryActivity extends MyenvocActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.dictionary_tabs);
-
+/*
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			ActionBar actionBar = getActionBar();
 			actionBar.setDisplayHomeAsUpEnabled(true);
 		}
-
+*/
 		tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
 		tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 

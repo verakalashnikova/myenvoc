@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.view.MenuItemCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -171,16 +172,20 @@ public class ViewVocabularyActivity extends MyenvocActivity implements FilterVoc
 		MenuInflater inflater = getMenuInflater();
 
 		inflater.inflate(R.menu.vocabulary_menu, menu);
+
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-			SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-			searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+			MenuItem menuItem = menu.findItem(R.id.search);
+			SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+			//SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+			//searchView.setIconifiedByDefault(true);
+			//searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
 			if (vocabulary != null) {
 				boolean noWordsAtAllYet = vocabulary.isEmpty() && !VocabularyFilter.filterSet(getBaseContext());
-				searchView.setIconifiedByDefault(!noWordsAtAllYet);
-				searchView.setIconified(!noWordsAtAllYet);
+				//searchView.setIconifiedByDefault(!noWordsAtAllYet);
+				//searchView.setIconified(!noWordsAtAllYet);
 			}
 		}
 

@@ -1,23 +1,27 @@
 package com.myenvoc.android.ui;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Logger;
-import com.google.android.gms.analytics.Tracker;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.Tracker;
+import com.google.inject.Key;
 import com.myenvoc.android.ui.dictionary.ToastAdListener;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
+import java.util.HashMap;
+import java.util.Map;
 
 import roboguice.RoboGuice;
+import roboguice.util.RoboContext;
 
-public abstract class MyenvocActivity extends AppCompatActivity {
+
+public abstract class MyenvocActivity extends AppCompatActivity implements RoboContext {
     protected AdView adView;
     private Tracker mTracker;
+
+    protected HashMap<Key<?>,Object> scopedObjects = new HashMap<Key<?>, Object>();
+
 
     protected void installAds(final AdView adView) {
         if (adView == null) {
@@ -81,5 +85,10 @@ public abstract class MyenvocActivity extends AppCompatActivity {
         if (adView != null) {
             adView.resume();
         }
+    }
+
+    @Override
+    public Map<Key<?>, Object> getScopedObjectMap() {
+        return scopedObjects;
     }
 }

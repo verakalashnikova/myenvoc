@@ -1,11 +1,12 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/search"
           android:title="@string/menu_search"
           android:icon="@drawable/ic_search"
-          android:showAsAction="collapseActionView|ifRoom"
+          app:showAsAction="collapseActionView|ifRoom"
           android:actionViewClass="android.widget.SearchView" />
     <item android:id="@+id/menu_delete"
           android:icon="@drawable/ic_delete"
           android:title="@string/deleteWord"
-          android:showAsAction="ifRoom|withText" />
+          app:showAsAction="ifRoom|withText" />
 </menu>

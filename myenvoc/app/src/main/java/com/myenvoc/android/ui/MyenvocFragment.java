@@ -1,6 +1,6 @@
 package com.myenvoc.android.ui;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
 import com.myenvoc.commons.UIUtils;
