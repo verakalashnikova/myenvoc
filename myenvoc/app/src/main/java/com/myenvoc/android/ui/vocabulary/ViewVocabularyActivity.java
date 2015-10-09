@@ -36,6 +36,9 @@ import android.view.View;
 import android.widget.ScrollView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.support.v7.app.ActionBarActivity;
+
+
 
 public class ViewVocabularyActivity extends MyenvocActivity implements FilterVocabularyDialogListener {
 
@@ -61,7 +64,7 @@ public class ViewVocabularyActivity extends MyenvocActivity implements FilterVoc
 		super.onCreate(savedInstanceState);
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			ActionBar actionBar = getActionBar();
+			android.support.v7.app.ActionBar actionBar = getSupportActionBar();//getActionBar();
 			actionBar.setDisplayHomeAsUpEnabled(true);
 		}
 
