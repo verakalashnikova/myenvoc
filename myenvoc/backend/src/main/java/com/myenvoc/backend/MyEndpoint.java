@@ -9,7 +9,7 @@ package com.myenvoc.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-
+import com.google.appengine.api.users.User;
 import javax.inject.Named;
 
 /**
@@ -18,11 +18,9 @@ import javax.inject.Named;
 @Api(
         name = "myApi",
         version = "v1",
-        namespace = @ApiNamespace(
-                ownerDomain = "backend.myapplication.vera.example.com",
-                ownerName = "backend.myapplication.vera.example.com",
-                packagePath = ""
-        )
+
+        clientIds = {Ids.WEB_CLIENT_ID, Ids.ANDROID_CLIENT_ID},
+        audiences = {Ids.ANDROID_AUDIENCE}
 )
 public class MyEndpoint {
 
@@ -30,11 +28,26 @@ public class MyEndpoint {
      * A simple endpoint method that takes a name and says Hi back
      */
     @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    public MyBean sayHi(@Named("name") String name, User user) {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+        response.setData("Hi, " + name + getUserName(user));
 
         return response;
+    }
+
+    @ApiMethod(name = "sayHi2")
+    public MyBean sayHi2(@Named("name") String name, User user) {
+        MyBean response = new MyBean();
+        response.setData("Hi, " + name + getUserName(user));
+
+        return response;
+    }
+
+    private String getUserName(User user) {
+        if (user == null) {
+            return ". Not authenticated";
+        }
+        return ". Your account is: " + user.getEmail() + ", " + user.getUserId();
     }
 
 }

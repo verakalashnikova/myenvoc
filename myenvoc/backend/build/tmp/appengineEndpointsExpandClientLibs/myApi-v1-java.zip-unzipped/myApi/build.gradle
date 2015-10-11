@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 
-group = 'com.example.vera.myapplication.backend'
+group = 'com.appspot.myenvoc'
 archivesBaseName = 'myApi'
 version = 'v1-1.20.0-SNAPSHOT'
 

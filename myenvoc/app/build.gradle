@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "android.myenvoc.com.myenvoc"
+        applicationId "com.myenvoc"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
@@ -37,4 +37,8 @@ dependencies {
     compile (project(path: ':backend', configuration: 'android-endpoints')) {
         exclude(module: 'guava-jdk5')
     }
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.http-client:google-http-client-gson:1.19.0'
+
+    //compile 'com.google.api-client:google-api-client-android:1.20.0'
 }
