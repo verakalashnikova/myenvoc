@@ -12,6 +12,11 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.appengine.api.users.User;
 import javax.inject.Named;
 
+
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+import static com.googlecode.objectify.ObjectifyService.ofy;
 /**
  * An endpoint class we are exposing
  */
@@ -23,14 +28,30 @@ import javax.inject.Named;
         audiences = {Ids.ANDROID_AUDIENCE}
 )
 public class MyEndpoint {
+    static {
+        ofy().factory().register(Car.class);
+    }
+    @Entity
+    public class Car {
+        @Id Long id;
+        @Index String license;
+        int color;
 
+        public Car(String license, int color) {
+            this.license = license;
+            this.color = color;
+        }
+    }
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name, User user) {
+        Car porsche = new Car("2FAST", 2);
+        ofy().save().entity(porsche).now();
+
         MyBean response = new MyBean();
-        response.setData("Hi, " + name + getUserName(user));
+        response.setData("Hi, " + name + getUserName(user) + ", id: " + porsche.id);
 
         return response;
     }
