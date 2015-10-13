@@ -14,18 +14,6 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
 public class BackendModule implements Module {
     @Override
     public void configure(Binder binder) {
-        binder.bind(Void.class).toProvider(ObjectifyInitializerProvider.class).asEagerSingleton();
-    }
-
-    /**
-     * Registry for all objectify domain objects.
-     */
-    static class ObjectifyInitializerProvider implements Provider<Void> {
-
-        @Override
-        public Void get() {
-            ofy().factory().register(UserProfile.class);
-            return null;
-        }
+        // TODO: add custom bindings here
     }
 }
