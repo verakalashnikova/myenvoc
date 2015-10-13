@@ -81,7 +81,7 @@ public class DictionaryService {
 			ServerRequest serverRequest = wordNetResource.requestBuilderInitParams().queryParameter("lemma", request)
 					.buildFor(WordNetDefinition.class);
 
-			return networkService.synchronousRequest(serverRequest);
+			return null;//networkService.synchronousRequest(serverRequest);
 		}
 	}
 
@@ -117,7 +117,7 @@ public class DictionaryService {
 			ServerRequest serverRequest = translationResource.requestBuilderInitParams().queryParameter("lemma", word)
 					.queryParameter("lang", lang).buildFor(TranslationMeaning.class, true);
 
-			return networkService.synchronousRequest(serverRequest);
+			return null;//networkService.synchronousRequest(serverRequest);
 		}
 	}
 
@@ -142,7 +142,7 @@ public class DictionaryService {
 		protected GoolgeImageSearchResult loadFromInternet(final String request) {
 			ServerRequest serverRequest = googleImageSearch.requestBuilder().queryParameter("q", request)
 					.buildFor(GoolgeImageSearchResult.class, false);
-			return networkService.synchronousRequest(serverRequest);
+			return null;//networkService.synchronousRequest(serverRequest);
 		}
 	}
 

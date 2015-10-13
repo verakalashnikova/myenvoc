@@ -21,16 +21,16 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
  * An endpoint class we are exposing
  */
 @Api(
-        name = "myApi",
+        name = "myenvocApi",
         version = "v1",
 
         clientIds = {Ids.WEB_CLIENT_ID, Ids.ANDROID_CLIENT_ID},
         audiences = {Ids.ANDROID_AUDIENCE}
 )
 public class MyEndpoint {
-    static {
-        ofy().factory().register(Car.class);
-    }
+//    static {
+//        ofy().factory().register(Car.class);
+//    }
     @Entity
     public class Car {
         @Id Long id;

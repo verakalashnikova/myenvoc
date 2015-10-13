@@ -27,6 +27,9 @@ dependencies {
     compile 'com.google.appengine:appengine-endpoints-deps:1.9.18'
     compile 'javax.servlet:servlet-api:2.5'
     compile 'com.googlecode.objectify:objectify:5.1.8'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.inject:guice:3.0'
+    compile 'com.google.inject.extensions:guice-servlet:3.0'
 }
 
 appengine {
@@ -39,3 +42,4 @@ appengine {
         getDiscoveryDocsOnBuild = true
     }
 }
+

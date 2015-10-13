@@ -1,15 +1,21 @@
 package com.myenvoc.android.service.network;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.SocketTimeoutException;
-import java.util.Collections;
+import android.content.Context;
+import android.net.ConnectivityManager;
+
+import com.myenvoc.android.domain.Failure;
+import com.myenvoc.android.domain.FailureValue;
+import com.myenvoc.android.inject.ContextAware;
+import com.myenvoc.android.service.network.ServerRequest.RequestType;
+import com.myenvoc.commons.ExecutorFactory;
+import com.myenvoc.commons.MyenvocRemoteInvocationException;
+
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 
 import javax.inject.Inject;
 
-import org.apache.http.HttpEntity;
+/*import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
@@ -20,26 +26,9 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;*/
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.util.Log;
 
-import com.myenvoc.android.domain.Entity;
-import com.myenvoc.android.domain.Failure;
-import com.myenvoc.android.domain.FailureValue;
-import com.myenvoc.android.domain.JSONConverter;
-import com.myenvoc.android.inject.ContextAware;
-import com.myenvoc.android.service.network.ServerRequest.RequestType;
-import com.myenvoc.commons.ExecutorFactory;
-import com.myenvoc.commons.MyAsyncTask;
-import com.myenvoc.commons.MyenvocException;
-import com.myenvoc.commons.MyenvocRemoteInvocationException;
-import com.myenvoc.commons.StringUtils;
-import com.myenvoc.commons.ThreadPoolExecutor;
 
 /** Low level generic networking. **/
 public class NetworkService {
@@ -70,7 +59,7 @@ public class NetworkService {
 		this.context = contextAware.getContextFromInstance();
 	}
 
-	private static DefaultHttpClient client;
+	/*private static DefaultHttpClient client;
 
 	private synchronized static DefaultHttpClient getThreadSafeClient() {
 
@@ -87,13 +76,13 @@ public class NetworkService {
 		client = new DefaultHttpClient(new ThreadSafeClientConnManager(params, mgr.getSchemeRegistry()), params);
 
 		return client;
-	}
+	}*/
 
 	/**
 	 * @throws MyenvocRemoteInvocationException
 	 *             in case of invocation error
 	 */
-	public <T> T synchronousRequest(final ServerRequest request) {
+	/*public <T> T synchronousRequest(final ServerRequest request) {
 		checkConnection(null);
 		switch (request.getRequestType()) {
 		case GET:
@@ -102,7 +91,7 @@ public class NetworkService {
 			return post(request);
 		}
 		throw new RuntimeException("Unknown request: " + request.getRequestType());
-	}
+	}*/
 
 	protected <T> boolean checkConnection(final GenericCallback<T> callback) {
 
@@ -135,7 +124,7 @@ public class NetworkService {
 			throw new RuntimeException("Unexpected request: " + request.getRequestType());
 		}
 
-		executorFactory.execute(ThreadPoolExecutor.TP_EXECUTOR_DEFAULT_PARAMETERS, new MyAsyncTask<ServerRequest, Void>() {
+		/*executorFactory.execute(ThreadPoolExecutor.TP_EXECUTOR_DEFAULT_PARAMETERS, new MyAsyncTask<ServerRequest, Void>() {
 
 			@Override
 			protected Void doInBackgroundThread(final ServerRequest param) {
@@ -153,10 +142,10 @@ public class NetworkService {
 				return null;
 			}
 
-		}, request);
+		}, request);*/
 	}
 
-	private <T> T post(final ServerRequest request) {
+	/*private <T> T post(final ServerRequest request) {
 		Log.i(TAG, "Invoke HTTP POST for url: " + request.getUrl());
 
 		HttpPost httpPost = new HttpPost(request.getUrl());
@@ -172,9 +161,9 @@ public class NetworkService {
 		}
 
 		return invokeHttpRequest(request, httpPost);
-	}
+	}*/
 
-	private <T> T get(final ServerRequest request) {
+	/*private <T> T get(final ServerRequest request) {
 		Log.i(TAG, "Invoke HTTP GET for url: " + request.getUrl());
 		return invokeHttpRequest(request, new HttpGet(request.getUrl()));
 	}
@@ -246,6 +235,6 @@ public class NetworkService {
 				}
 			}
 		}
-	}
+	}*/
 
 }

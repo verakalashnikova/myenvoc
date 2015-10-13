@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-	<string name="ad_unit_id">ca-app-pub-4418557653499639/7274633108</string>    
+    <string name="web_client_id">server:client_id:1089156366475-5ckkehnm9dn7fb661lurecshj9a8s8bf.apps.googleusercontent.com</string>
+    <string name="ad_unit_id">ca-app-pub-4418557653499639/7274633108</string>
     <!-- The name of the application. -->
     <string name="app_name">My English Vocabulary</string>
 

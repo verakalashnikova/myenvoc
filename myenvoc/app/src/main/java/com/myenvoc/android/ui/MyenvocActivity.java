@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.Tracker;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 import com.google.inject.Key;
 import com.myenvoc.android.ui.dictionary.ToastAdListener;
 
@@ -21,7 +22,6 @@ public abstract class MyenvocActivity extends AppCompatActivity implements RoboC
     private Tracker mTracker;
 
     protected HashMap<Key<?>,Object> scopedObjects = new HashMap<Key<?>, Object>();
-
 
     protected void installAds(final AdView adView) {
         if (adView == null) {

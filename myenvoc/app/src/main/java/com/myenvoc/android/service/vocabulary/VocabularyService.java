@@ -305,7 +305,7 @@ public class VocabularyService {
 
 	protected void requestServerSyncSynchronously(final ServerRequest request, final VocabularySyncListener syncListener) {
 		try {
-			MyWordSyncResponse response = networkService.synchronousRequest(request);
+			MyWordSyncResponse response = null;//networkService.synchronousRequest(request);
 			handleSyncResponse(response, syncListener);
 		} catch (Exception e) {
 			Log.e(TAG, "Unable to sync word remotely ", e);

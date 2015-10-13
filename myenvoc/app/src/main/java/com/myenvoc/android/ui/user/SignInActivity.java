@@ -34,6 +34,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+// Google sign in is used instead
+@Deprecated
 public class SignInActivity extends MyenvocActivity {
 
 	private static final String OPEN_ID_JS_OBJECT_NAME = "myenvocAndroid";

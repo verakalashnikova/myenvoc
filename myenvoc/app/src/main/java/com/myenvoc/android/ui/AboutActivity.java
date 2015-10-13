@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.appspot.myenvoc.myApi.MyApi;
+import com.appspot.myenvoc.myenvocApi.*;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 
 public class AboutActivity extends MyenvocActivity {
     GoogleAccountCredential credential;
-    private MyApi service;
+    private MyenvocApi service;
 
     private static final int REQUEST_ACCOUNT_PICKER = 2;
 
@@ -39,13 +39,19 @@ public class AboutActivity extends MyenvocActivity {
         credential = GoogleAccountCredential.usingAudience(this,
                 "server:client_id:1089156366475-5ckkehnm9dn7fb661lurecshj9a8s8bf.apps.googleusercontent.com");
 
-        MyApi.Builder builder = new MyApi.Builder(
+        MyenvocApi.Builder builder = new MyenvocApi.Builder(
                 AndroidHttp.newCompatibleTransport(), new GsonFactory(),
                 credential);
+        builder.setRootUrl("http://192.168.1.6:8080/_ah/api/").setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+            @Override
+            public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
+                request.setDisableGZipContent(true);
+            }
+        });
 
-        this.service = builder.build();
+        service = builder.build();
 
-        chooseAccount();;
+        chooseAccount();
     }
 
     void chooseAccount() {
@@ -79,7 +85,8 @@ public class AboutActivity extends MyenvocActivity {
             context = params[0].first;
             String name = params[0].second;
             try {
-                return service.sayHi(name).execute().getData();
+                //TODO:: realize what to do with api and return service.sayHi(name).execute().getData();
+                return service.signIn().execute().getEmail();//service.sayHi(name).execute().getData();
             } catch (IOException e) {
                 e.printStackTrace();
                 return e.getMessage();
