@@ -24,7 +24,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".android.ui.dictionary.MyenvocHomeActivity" >
+        <activity android:name="com.myenvoc.android.ui.dictionary.MyenvocHomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,7 @@
         </activity>
 
         <!-- The default activity of the app; displays search results. -->
-        <activity android:name=".android.ui.dictionary.MyenvocDictionaryActivity" >
+        <activity android:name="com.myenvoc.android.ui.dictionary.MyenvocDictionaryActivity" >
 
             <!-- android:launchMode="singleTop" -->
 
@@ -49,28 +49,28 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".android.ui.dictionary.PickWordInfoActivity" />
-        <activity android:name=".android.ui.vocabulary.ViewVocabularyActivity" />
-        <activity android:name=".android.ui.vocabulary.EditVocabularyActivity" />
+        <activity android:name="com.myenvoc.android.ui.dictionary.PickWordInfoActivity" />
+        <activity android:name="com.myenvoc.android.ui.vocabulary.ViewVocabularyActivity" />
+        <activity android:name="com.myenvoc.android.ui.vocabulary.EditVocabularyActivity" />
         <activity
-            android:name=".android.ui.user.SignInActivity"
+            android:name="com.myenvoc.android.ui.user.SignInActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".android.ui.SettingsActivity" />
-        <activity android:name=".android.ui.user.ModifyUserProfileActivity" />
-        <activity android:name=".android.ui.AboutActivity" />
+        <activity android:name="com.myenvoc.android.ui.SettingsActivity" />
+        <activity android:name="com.myenvoc.android.ui.user.ModifyUserProfileActivity" />
+        <activity android:name="com.myenvoc.android.ui.AboutActivity" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
 
         <provider
-            android:name=".android.ui.dictionary.MyenvocDictionaryLemmasProvider"
-            android:authorities="com.myenvoc.android.ui.dictionary.MyenvocDictionaryLemmasProvider" />
+            android:name="com.myenvoc.android.ui.dictionary.MyenvocDictionaryLemmasProvider"
+            android:authorities="com.myenvoccom.myenvoc.android.ui.dictionary.MyenvocDictionaryLemmasProvider" />
 
         <!-- Points to searchable activity so the whole app can invoke search. -->
         <meta-data
             android:name="android.app.default_searchable"
-            android:value="com.myenvoc.android.ui.dictionary.MyenvocDictionaryActivity" />
+            android:value="com.myenvoccom.myenvoc.android.ui.dictionary.MyenvocDictionaryActivity" />
         <meta-data
             android:name="android.app.searchable"
             android:resource="@xml/searchable"

@@ -29,6 +29,9 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class MyenvocApiClient {
+    private static final String API_WIFI = "http://192.168.1.6:8080/_ah/api/";
+    private static final String API_EMULATOR = "http://10.10.10.2:8080/_ah/api/";
+    private static final String API = API_EMULATOR;
     private final GoogleAccountCredential googleAccountCredential;
     private final boolean localBackend = true;
     private final MyenvocApi myenvocApi;
@@ -49,7 +52,7 @@ public class MyenvocApiClient {
     }
 
     private void initForLocal(MyenvocApi.Builder builder) {
-        builder.setRootUrl("http://192.168.1.6:8080/_ah/api/").setGoogleClientRequestInitializer
+        builder.setRootUrl(API).setGoogleClientRequestInitializer
                 (new GoogleClientRequestInitializer() {
                     @Override
                     public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
